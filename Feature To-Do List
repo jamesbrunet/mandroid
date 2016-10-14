@@ -1,0 +1,37 @@
+Things that we are aiming for!
+
+Collectables:
+ []	This will be a parent class, of ALL collectables.
+ []	Each collectable type will be a child of this class.
+
+	Potential Collectables:
+
+ []	Points: Will increase your score. Nothing more.
+ []	Fuel: Will increase current fuel: could be in different increments.
+
+Environment
+ []	Boundary
+ []	Camera fixed to player
+ []	Background
+
+Menus
+ []	Main Game Splash
+ []	Level Select
+ []	Options - For settings and...such...
+ []	Leaderboards
+
+Ship
+ []	Thrusters
+
+
+Game Manager 
+ []	Save State Feature
+
+
+
+Sound Manager	
+
+Planet
+ []	Collider Box if the player hits the planet they die
+ []	Physics can be brought in later.			
+		
