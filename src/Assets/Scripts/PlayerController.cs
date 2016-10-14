@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
 
 	void Start()
 	{
+		//This stops the device from falling asleep when only using the accelerometer
+		Screen.sleepTimeout = SleepTimeout.NeverSleep; 
+
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
 		SetCountText ();
@@ -22,9 +25,16 @@ public class PlayerController : MonoBehaviour {
 		
 	void FixedUpdate() 
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
-
+		//Fetch input from user. This varies based on device type.
+		float moveHorizontal = 0;
+		float moveVertical = 0;
+		if (SystemInfo.deviceType == DeviceType.Desktop) {
+			moveHorizontal = Input.GetAxis ("Horizontal");
+			moveVertical = Input.GetAxis ("Vertical");
+		} else {
+			moveHorizontal = Input.acceleration.x;
+			moveVertical = Input.acceleration.y;
+		}
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 		rb.AddForce (movement * speed);
 
@@ -41,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 	void SetCountText()
 	{
 		countText.text = "Count: " + count.ToString ();
-		if (count >= 13) {
+		if (count >= 12) {
 			winText.text = "You Win!";
 		}
 	}
