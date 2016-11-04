@@ -1,0 +1,4 @@
+Completed the bounds for out game space area's.
+Completed a 2 dimensional gravitational pull (rafael did this as well with another type of implementation).
+Completed the above task with the creation of a planet object that pulls the player ship.
+Will be working on some models for our game, and try my hand at an enemy asteroid spawn for next Tuesday.
