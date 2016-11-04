@@ -1,0 +1,14 @@
+<form action="/high_scores/" method="post"> {% csrf_token %}
+    {{ high_scores }}
+    <p>
+        <label for="user_name">username: </label>
+        <input id="user_name" type="text" name="user_name" value="">
+    </p>
+    <p>
+        <label for="score">score: </label>
+        <input id="score" type="text" name="score" value="">
+    </p>
+    <p>
+        <input type="submit" value="OK">
+    </p>
+</form>
