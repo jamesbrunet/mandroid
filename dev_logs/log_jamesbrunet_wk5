@@ -1,0 +1,7 @@
+Decided on network infrastructure for high scores, after a cost-benefit analysis of various platforms and versions.
+
+I will be implementing our high scores server with the following tools:
+- Django 1.10
+- Python 2.7
+- Apache
+- SQLLite
