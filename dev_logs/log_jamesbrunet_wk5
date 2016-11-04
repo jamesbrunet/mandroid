@@ -5,3 +5,5 @@ I will be implementing our high scores server with the following tools:
 - Python 2.7
 - Apache
 - SQLLite
+
+It will be hosted on my webserver in LA
