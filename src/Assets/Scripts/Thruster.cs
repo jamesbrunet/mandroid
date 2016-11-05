@@ -4,9 +4,9 @@ using System.Collections;
 public class Thruster : MonoBehaviour
 {
 
-    public float thrusterMovementSpeed = 0.5f;
-    public float thrusterRotationSpeed = 0.15f;
-    public float maxSpeed = 3.0f;
+    public float thrusterMovementSpeed = 1f;
+    public float thrusterRotationSpeed = 0.5f;
+    public float maxSpeed = 5.0f;
 
     private GameObject thrusterParent;
     private Rigidbody thrusterParentRb;
@@ -44,24 +44,24 @@ public class Thruster : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         if(this.tag == "FrontThruster"){
-            if(moveVertical > 0){
+            if(moveVertical < 0){
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, -1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
             }
         }else if(this.tag == "BackThruster"){
-            if (moveVertical < 0)
+            if (moveVertical > 0)
             {
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, 1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
             }
         }else if(this.tag == "LeftThruster"){
-            if (moveHorizontal < 0)
+            if (moveHorizontal > 0)
             {
                 thrusterParentRb.AddRelativeTorque(thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
             }
         }else if(this.tag == "RightThruster"){
-            if (moveHorizontal > 0)
+            if (moveHorizontal < 0)
             {
                 thrusterParentRb.AddRelativeTorque(-thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
