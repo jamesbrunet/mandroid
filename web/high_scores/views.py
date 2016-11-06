@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from .models import HighScore
-from django.forms.models import model_to_dict
 from django.utils import timezone
-
+import json
 # Create your views here.
+from django.http import JsonResponse
 from django.http import HttpResponse
-
 
 def index(request):
     if request.POST:
@@ -23,6 +22,9 @@ def index(request):
                     'time': str(high_score.score_date.date()),
                 }
             )
-
         context['high_scores'] = high_scores_list
-        return render(request, 'high_scores/index.html', context)
+
+        if "json" in request.GET.keys():
+            return JsonResponse(context)
+        else:
+            return render(request, 'high_scores/index.html', context)
