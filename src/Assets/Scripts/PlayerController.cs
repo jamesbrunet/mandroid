@@ -18,24 +18,19 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody rb;
 	private int score;
-    public float fuel;
-    public Slider fuelSlider;
-
 
 	void Start () {
 		//This stops the device from falling asleep when only using the accelerometer
 		Screen.sleepTimeout = SleepTimeout.NeverSleep; 
 
         rb = GetComponent<Rigidbody>();
-        fuel = 2000;
 		score = 0;
 		SetCountText ();
 		winText.text = "";
 	}
 
 	void FixedUpdate () {
-
-        fuelSlider.value = fuel;
+        
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -52,8 +47,4 @@ public class PlayerController : MonoBehaviour {
 			winText.text = "You Win!";
 		}
 	}
-
-   public void spendFuel(){
-        fuel = fuel - 1;
-    }
 }
