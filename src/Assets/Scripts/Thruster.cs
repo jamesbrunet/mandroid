@@ -11,13 +11,14 @@ public class Thruster : MonoBehaviour
     private GameObject thrusterParent;
     private Rigidbody thrusterParentRb;
     private ParticleSystem thrusterParticles;
+    private GameObject ship;
 
     // Use this for initialization
     void Start()
     {
         thrusterParent = this.transform.parent.gameObject;
         thrusterParentRb = thrusterParent.GetComponent<Rigidbody>();
-        
+        ship = GameObject.Find("Player");
         switch(this.tag){
             case "FrontThruster":
                 thrusterParticles = (GameObject.FindGameObjectWithTag("FrontThrusterParticles")).GetComponent<ParticleSystem>();
@@ -42,30 +43,35 @@ public class Thruster : MonoBehaviour
 
         //Store the current vertical input in the float moveVertical.
         float moveVertical = Input.GetAxis("Vertical");
-
+        
         if(this.tag == "FrontThruster"){
             if(moveVertical < 0){
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, -1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
+                ship.GetComponent<PlayerController>().spendFuel();
             }
         }else if(this.tag == "BackThruster"){
             if (moveVertical > 0)
             {
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, 1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
+                ship.GetComponent<PlayerController>().spendFuel();
             }
         }else if(this.tag == "LeftThruster"){
             if (moveHorizontal > 0)
             {
                 thrusterParentRb.AddRelativeTorque(thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
+                ship.GetComponent<PlayerController>().spendFuel();
             }
         }else if(this.tag == "RightThruster"){
             if (moveHorizontal < 0)
             {
                 thrusterParentRb.AddRelativeTorque(-thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
+                ship.GetComponent<PlayerController>().spendFuel();
             }
+            
         }
 
         if (thrusterParentRb.velocity.magnitude > maxSpeed)

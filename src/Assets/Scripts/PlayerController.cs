@@ -15,14 +15,17 @@ public class PlayerController : MonoBehaviour {
     public float speed;
 	public Text countText;
 	public Text winText;
+    public float fuel;
+    public Slider fuelSlider;
 
     private Rigidbody rb;
 	private int score;
 
 	void Start () {
-		//This stops the device from falling asleep when only using the accelerometer
-		Screen.sleepTimeout = SleepTimeout.NeverSleep; 
-
+        //This stops the device from falling asleep when only using the accelerometer
+        this.gameObject.SetActive(true);
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        fuel = 2000;
         rb = GetComponent<Rigidbody>();
 		score = 0;
 		SetCountText ();
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-        
+        fuelSlider.value = fuel;
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -39,6 +42,11 @@ public class PlayerController : MonoBehaviour {
 			score += 1;
 			SetCountText ();
 		}
+
+        if (other.gameObject.CompareTag("LevelBounds")){
+            this.gameObject.SetActive(false);
+            winText.text = "You died!";
+        }
 	}
 
 	void SetCountText(){
@@ -47,4 +55,9 @@ public class PlayerController : MonoBehaviour {
 			winText.text = "You Win!";
 		}
 	}
+
+    public void spendFuel()
+    {
+        fuel -= 1;
+    }
 }
