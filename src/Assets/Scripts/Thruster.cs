@@ -38,42 +38,80 @@ public class Thruster : MonoBehaviour
     void FixedUpdate()
         {
 
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        // Definitions of the screen sections in a mobile device
+        Rect screenUp = new Rect(0, 0, Screen.width, Screen.height / 4);
+        Rect screenDown = new Rect(0, Screen.height - (Screen.height / 4), Screen.width, Screen.height / 4);
+        Rect screenLeft = new Rect(0, Screen.height / 4, Screen.width / 2, Screen.height / 2);
+        Rect screenRight = new Rect(Screen.width / 2, Screen.height / 4, Screen.width / 2, Screen.height / 2);
 
-        //Store the current vertical input in the float moveVertical.
-        float moveVertical = Input.GetAxis("Vertical");
-        
+        // Flag denoting which screen section was recently touched in a mobile device
+        bool touchLeft = false;
+        bool touchRight = false;
+        bool touchUp = false;
+        bool touchDown = false;
+
+        //Store the current horizontal input for axis control.
+        float axisHorizontal = Input.GetAxis("Horizontal");
+
+        //Store the current vertical input for axis control.
+        float axisVertical = Input.GetAxis("Vertical");
+
+        // Detect which screen section were recently touched in a mobile device
+        for (int i = 0; i < Input.touchCount; i++ )
+        {
+            if(screenUp.Contains(Input.touches[i].position)){
+                touchUp = true;
+            }else if(screenDown.Contains(Input.touches[i].position)){
+                touchDown = true;
+            }else if(screenLeft.Contains(Input.touches[i].position)){
+                touchLeft = true;
+            }
+            else if (screenRight.Contains(Input.touches[i].position))
+            {
+                touchRight = true;
+            }
+        }
+
+        // Check if input requires forward movement
         if(this.tag == "FrontThruster"){
-            if(moveVertical < 0){
+            if(axisVertical < 0 || touchDown){
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, -1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
                 ship.GetComponent<PlayerController>().spendFuel();
             }
-        }else if(this.tag == "BackThruster"){
-            if (moveVertical > 0)
+        }
+
+        // Check if input requires backward movement
+        if(this.tag == "BackThruster"){
+            if (axisVertical > 0 || touchUp)
             {
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, 1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
                 ship.GetComponent<PlayerController>().spendFuel();
             }
-        }else if(this.tag == "LeftThruster"){
-            if (moveHorizontal > 0)
+        }
+
+        // Check if input requires rotation to the right
+        if(this.tag == "LeftThruster" || touchLeft){
+            if (axisHorizontal > 0)
             {
                 thrusterParentRb.AddRelativeTorque(thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
                 ship.GetComponent<PlayerController>().spendFuel();
             }
-        }else if(this.tag == "RightThruster"){
-            if (moveHorizontal < 0)
+        }
+
+        // Check if input requires rotation to the left
+        if(this.tag == "RightThruster" || touchRight){
+            if (axisHorizontal < 0)
             {
                 thrusterParentRb.AddRelativeTorque(-thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
                 ship.GetComponent<PlayerController>().spendFuel();
             }
-            
         }
 
+        // Check if maximum allowed speed has been reached and limit further acceleration
         if (thrusterParentRb.velocity.magnitude > maxSpeed)
             thrusterParentRb.velocity = thrusterParentRb.velocity.normalized * maxSpeed;
 
