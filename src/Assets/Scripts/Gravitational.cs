@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Gravitational : MonoBehaviour {
 
-    public float gravityStrength = 10.0f;
+    public float gravitationalConstant = 9.6f;
     private int pullCounter;
 
 	// Use this for initialization
@@ -35,22 +35,24 @@ public class Gravitational : MonoBehaviour {
         }
     }
 
-    IEnumerator PullPlayer(GameObject player) { 
+    IEnumerator PullPlayer(GameObject player)
+    {
         Rigidbody playerRb = player.GetComponent<Rigidbody>();
         int counter = 0;
 
-        while(pullCounter == 1){
+        while (pullCounter == 1)
+        {
             counter++;
 
             // Gravitational Code
             Vector3 offset = this.transform.position - player.transform.position;
+            Vector3 direction = offset.normalized;
 
-            //float magsqr = offset.sqrMagnitude;
-            playerRb.AddForce(gravityStrength * offset.normalized, ForceMode.Acceleration);
+            float gravitationalForce = (this.GetComponent<Rigidbody>().mass * playerRb.mass * gravitationalConstant) / offset.sqrMagnitude;
+
+            playerRb.AddForce(direction * gravitationalForce);
 
             yield return new WaitForFixedUpdate();
         }
-
-        //Debug.Log("Corrutine Ended");
     }
 }
