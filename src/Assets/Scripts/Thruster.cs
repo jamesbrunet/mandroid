@@ -65,16 +65,14 @@ public class Thruster : MonoBehaviour
                 touchDown = true;
             }else if(screenLeft.Contains(Input.touches[i].position)){
                 touchLeft = true;
-            }
-            else if (screenRight.Contains(Input.touches[i].position))
-            {
+            }else if (screenRight.Contains(Input.touches[i].position)){
                 touchRight = true;
             }
         }
 
         // Check if input requires forward movement
         if(this.tag == "FrontThruster"){
-            if(axisVertical < 0 || touchDown){
+            if(axisVertical < 0 || touchUp){
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, -1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
                 ship.GetComponent<PlayerController>().spendFuel();
@@ -83,7 +81,7 @@ public class Thruster : MonoBehaviour
 
         // Check if input requires backward movement
         if(this.tag == "BackThruster"){
-            if (axisVertical > 0 || touchUp)
+            if (axisVertical > 0 || touchDown)
             {
                 thrusterParentRb.AddRelativeForce((new Vector3(0, 0, 1)) * thrusterMovementSpeed, ForceMode.Acceleration);
                 thrusterParticles.Play();
@@ -92,8 +90,8 @@ public class Thruster : MonoBehaviour
         }
 
         // Check if input requires rotation to the right
-        if(this.tag == "LeftThruster" || touchLeft){
-            if (axisHorizontal > 0)
+        if(this.tag == "LeftThruster"){
+            if (axisHorizontal > 0 || touchLeft)
             {
                 thrusterParentRb.AddRelativeTorque(thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
@@ -102,8 +100,8 @@ public class Thruster : MonoBehaviour
         }
 
         // Check if input requires rotation to the left
-        if(this.tag == "RightThruster" || touchRight){
-            if (axisHorizontal < 0)
+        if(this.tag == "RightThruster"){
+            if (axisHorizontal < 0 || touchRight)
             {
                 thrusterParentRb.AddRelativeTorque(-thrusterParent.transform.up * thrusterRotationSpeed);
                 thrusterParticles.Play();
