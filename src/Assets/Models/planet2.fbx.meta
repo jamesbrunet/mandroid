@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: ba3cd3426d5a6fa4582a4265fa0ca2a3
-timeCreated: 1478978462
+guid: d84a2f97faf93364d961d1c67e727211
+timeCreated: 1478988390
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Sphere
-    100004: Sphere.002
-    400000: //RootNode
-    400002: Sphere
-    400004: Sphere.002
-    2300000: Sphere
-    2300002: Sphere.002
-    3300000: Sphere
-    3300002: Sphere.002
-    4300000: Sphere
-    4300002: Sphere.002
+    100000: Body
+    100002: //RootNode
+    100004: Ring
+    400000: Body
+    400002: //RootNode
+    400004: Ring
+    2300000: Body
+    2300002: Ring
+    3300000: Body
+    3300002: Ring
+    4300000: Body
+    4300002: Ring
   materials:
     importMaterials: 1
     materialName: 0

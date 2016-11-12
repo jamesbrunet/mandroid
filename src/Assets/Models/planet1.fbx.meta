@@ -1,22 +1,21 @@
 fileFormatVersion: 2
-guid: b0012fecfa7c65043b76594728b56b81
-timeCreated: 1478978461
+guid: 73eb461a98e5eb4409c110a65efbde8a
+timeCreated: 1478988387
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Sphere_MeshPart0
-    100004: Sphere_MeshPart1
-    400000: //RootNode
-    400002: Sphere_MeshPart0
-    400004: Sphere_MeshPart1
-    2300000: Sphere_MeshPart0
-    2300002: Sphere_MeshPart1
-    3300000: Sphere_MeshPart0
-    3300002: Sphere_MeshPart1
-    4300000: Sphere_MeshPart0
-    4300002: Sphere_MeshPart1
+    100000: Camera
+    100002: Lamp
+    100004: //RootNode
+    100006: Sphere
+    400000: Camera
+    400002: Lamp
+    400004: //RootNode
+    400006: Sphere
+    2300000: Sphere
+    3300000: Sphere
+    4300000: Sphere
   materials:
     importMaterials: 1
     materialName: 0
