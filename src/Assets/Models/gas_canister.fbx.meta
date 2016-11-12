@@ -10,43 +10,23 @@ ModelImporter:
     100004: Cylinder
     100006: Cylinder.001
     100008: //RootNode
-    100010: Hose
-    100012: Tank
-    100014: Tube
-    100016: Valve
     400000: Cube
     400002: Cube.001
     400004: Cylinder
     400006: Cylinder.001
     400008: //RootNode
-    400010: Hose
-    400012: Tank
-    400014: Tube
-    400016: Valve
     2300000: Cube
     2300002: Cube.001
     2300004: Cylinder
     2300006: Cylinder.001
-    2300008: Hose
-    2300010: Tank
-    2300012: Tube
-    2300014: Valve
     3300000: Cube
     3300002: Cube.001
     3300004: Cylinder
     3300006: Cylinder.001
-    3300008: Hose
-    3300010: Tank
-    3300012: Tube
-    3300014: Valve
     4300000: Cylinder.001
     4300002: Cube.001
     4300004: Cylinder
     4300006: Cube
-    4300008: Hose
-    4300010: Valve
-    4300012: Tube
-    4300014: Tank
   materials:
     importMaterials: 1
     materialName: 0
