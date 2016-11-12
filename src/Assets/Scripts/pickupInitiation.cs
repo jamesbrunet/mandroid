@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class pickupInitiation : MonoBehaviour {
-	// Use this for initialization
+    // Use this for initialization
+    
+
 
     bool isPickedUp = false;
 
@@ -23,7 +25,7 @@ public class pickupInitiation : MonoBehaviour {
             {
                 print("Fuel just picked up!");
                 this.isPickedUp = true;
-                other.gameObject.GetComponent<PlayerController>().fuel = 2000;
+                   other.gameObject.GetComponent<PlayerController>().fuel = 2000;
             }
         }
     }

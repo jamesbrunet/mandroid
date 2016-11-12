@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 	public Text winText;
     public bool win = false;
     public bool alive = true;
+    public GameObject explosionParticles;
 
     //Fuel
     public float fuel;
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour {
 	private int score;
 
 	void Start () {
-
         //This stops the device from falling asleep when only using the accelerometer
         this.gameObject.SetActive(true);
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -41,10 +41,13 @@ public class PlayerController : MonoBehaviour {
         fuelSlider.value = fuel;
 	}
 
-    void isDestroyed()
+    public void isDestroyed()
     {
+        
+        this.GetComponent<ParticleSystem>().Play();
         alive = false;
         this.gameObject.SetActive(false);
+        
         //winText.text = "You died!";
     }
 
