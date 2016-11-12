@@ -20,6 +20,7 @@ public class Gravitational : MonoBehaviour {
                 StartCoroutine(PullPlayer(other.gameObject));
                 //Debug.Log("Corrutine Started.");
             }else if(pullCounter == 2){
+                other.GetComponent<PlayerController>().alive = false;
                 other.gameObject.SetActive(false);
             }
         }

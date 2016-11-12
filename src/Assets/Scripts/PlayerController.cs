@@ -15,13 +15,18 @@ public class PlayerController : MonoBehaviour {
     public float speed;
 	public Text countText;
 	public Text winText;
+    public bool win = false;
+    public bool alive = true;
+
+    //Fuel
     public float fuel;
     public Slider fuelSlider;
-
+  
     private Rigidbody rb;
 	private int score;
 
 	void Start () {
+
         //This stops the device from falling asleep when only using the accelerometer
         this.gameObject.SetActive(true);
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -36,25 +41,32 @@ public class PlayerController : MonoBehaviour {
         fuelSlider.value = fuel;
 	}
 
+    void isDestroyed()
+    {
+        alive = false;
+        this.gameObject.SetActive(false);
+        //winText.text = "You died!";
+    }
+
+
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("Pickup")) {
-			other.gameObject.SetActive (false);
 			score += 1;
 			SetCountText ();
 		}
 
         if (other.gameObject.CompareTag("LevelBounds")){
-            this.gameObject.SetActive(false);
-            winText.text = "You died!";
+            isDestroyed();
         }
 	}
 
 	void SetCountText(){
 		countText.text = "Count: " + score.ToString ();
 		if (score >= 12) {
-			winText.text = "You Win!";
+            win = true;
 		}
 	}
+
 
     public void spendFuel()
     {
