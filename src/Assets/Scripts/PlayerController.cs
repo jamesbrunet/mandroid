@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
 			SetCountText ();
 		}
 
+
         if (other.gameObject.CompareTag("LevelBounds")){
             isDestroyed();
         }

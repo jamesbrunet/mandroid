@@ -14,8 +14,17 @@ public class pickupInitiation : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("Player just hit pickup");
             this.isPickedUp = true;
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (this.gameObject.CompareTag("Fuel"))
+            {
+                print("Fuel just picked up!");
+                this.isPickedUp = true;
+                other.gameObject.GetComponent<PlayerController>().fuel = 2000;
+            }
         }
     }
 
