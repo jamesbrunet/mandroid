@@ -18,16 +18,16 @@ public class PlayerController : MonoBehaviour {
     public bool win = false;
     public bool alive = true;
     public GameObject explosionParticles;
-
+    private int score;
     //Fuel
     public float fuel;
     public Slider fuelSlider;
   
     private Rigidbody rb;
-	public int score;
 
 	void Start () {
         //This stops the device from falling asleep when only using the accelerometer
+        score = PlayerPrefs.GetInt("score",score);
         this.gameObject.SetActive(true);
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
         fuel = 2000;
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour {
 	void SetCountText(){
 		countText.text = "Count: " + score.ToString ();
 		if (score >= 12 && Application.loadedLevel == 1) {
+            PlayerPrefs.SetInt("score", score);
             win = true;
         }
         if (score >= 24)
