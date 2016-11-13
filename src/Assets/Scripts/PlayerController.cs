@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         //This stops the device from falling asleep when only using the accelerometer
         if (Application.loadedLevel == 3)
         {
+            print("Score loading!");
             score = PlayerPrefs.GetInt("score");
         }
         else
@@ -62,7 +63,8 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Pickup")) {
 			score += 1;
 			SetCountText ();
-		}
+            PlayerPrefs.SetInt("score", score);
+        }
 
 
         if (other.gameObject.CompareTag("LevelBounds")){
@@ -77,14 +79,16 @@ public class PlayerController : MonoBehaviour {
 
 	void SetCountText(){
 		countText.text = "Count: " + score.ToString ();
+        //Win first level with max score
 		if (score >= 12 && Application.loadedLevel == 1) {
-            PlayerPrefs.SetInt("score", score);
             win = true;
         }
-        if (score >= 24)
+        //Win second level with max score
+        if (score >= 24 && Application.loadedLevel == 3)
         {
             win = true;
         }
+
         
 	}
 
