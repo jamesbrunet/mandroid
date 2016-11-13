@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         //This stops the device from falling asleep when only using the accelerometer
         if (Application.loadedLevel == 3)
         {
+            win = false;
             print("Score loading!");
             score = PlayerPrefs.GetInt("score");
         }
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour {
     public void isDestroyed()
     {
         
-        this.GetComponent<ParticleSystem>().Play();
+        //this.GetComponent<ParticleSystem>().Play();
         alive = false;
         this.gameObject.SetActive(false);
         
@@ -74,6 +75,10 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("Exit"))
         {
             win = true;
+        }
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            isDestroyed();
         }
 	}
 
