@@ -1,0 +1,6 @@
+We got a boatload of work done this week. What I did:
+- Implemented a high score submission view, and POSTing to the server
+- Got menus working, and got them looking pretty good
+- Got the high score server running on the actual internet as opposed to localhost
+- Augmented the existing high scores view by allowing the user to return to menu
+- Many other misc changes
