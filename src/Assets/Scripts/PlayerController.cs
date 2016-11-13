@@ -27,7 +27,14 @@ public class PlayerController : MonoBehaviour {
 
 	void Start () {
         //This stops the device from falling asleep when only using the accelerometer
-        score = PlayerPrefs.GetInt("score",score);
+        if (Application.loadedLevel == 3)
+        {
+            score = PlayerPrefs.GetInt("score");
+        }
+        else
+        {
+            score = 0;
+        }
         this.gameObject.SetActive(true);
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
         fuel = 2000;
@@ -60,6 +67,11 @@ public class PlayerController : MonoBehaviour {
 
         if (other.gameObject.CompareTag("LevelBounds")){
             isDestroyed();
+        }
+
+        if (other.gameObject.CompareTag("Exit"))
+        {
+            win = true;
         }
 	}
 
