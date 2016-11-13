@@ -1,0 +1,18 @@
+RedditSMS is a reddit client that can access self posts without wifi or a 2g/3g/4g/LTE connection–it uses SMS for data transmission. I feel like this is the most unique idea that I have at the moment, although I am super open to anything else too. That space invaders game sounds pretty neat.
+Essentially, we'd need to develop a client app and a server app. I can bring in the server app I've developed so far to show you what I've got. Interestingly, at this point in development the server does not even require the client to download the app! It's pretty dirty but it works.
+
+Client App
+The client app will send requests to the server, then receive and parse responses from the server. A fancy user interface will be provided to browse reddit and make sending requests easy (and hidden from the user).
+
+Server App
+The server is a crappy smartphone with a prepaid simcard that has unlimited text. The server will run a redditSMS app that will listen for incoming SMS messages, parse them, access reddit, and return content. This should be fairly lightweight, the rudimentary stuff I wrote was maybe a hundred lines. We can use JRAW (Java Reddit API Wrapper) to minimize the code we have to write.
+
+Possible Goals
+- "Intercept" text messages so the user isn't annoyed with their phone constantly buzzing. This may be impossible in Android, I haven't looked into it.
+- Use a text compression algorithm like Smaz or Deflate to greatly reduce the amount of SMS messages the server must send.
+- Allow the user to login, (shit)post, and check their inbox. This might be a tough one, we should check if this is possible to do securely. We don't want to rely on too much server side code so we may have to throw this out.
+- Have a different set of default subreddits. Particularily, all subreddits that frequently link to outside content (news articles, pictures, videos), will be pretty useless with this application. Good candidates are /r/personalfinance, /r/writingprompts, /r/carletonu, and /r/nosleep.
+- Find posts that /u/captionbot has posted in, and generate memes clientside based off of what captionbot sees. That way we can have some image posts, without actually transmitting the images!
+
+Limitations of SMS
+A single SMS message can contain 160 7-bit characters. However, you can also send a multipart SMS message to shoot off more data at once. Every part of a multipart SMS message requires a header that contains part metadata, so each part has a slightly lower capacity (153 7-bit characters). That being said, it may actually be more efficient to send multipart SMS messages if we compress text–I think larger sets of data tend to compress better.
