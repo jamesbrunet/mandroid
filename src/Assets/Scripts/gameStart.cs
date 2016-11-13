@@ -29,7 +29,7 @@ public class gameStart : MonoBehaviour {
             }
             else
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(4);
             }
         }
     }
@@ -38,7 +38,7 @@ public class gameStart : MonoBehaviour {
     {
         if (ship.GetComponent<PlayerController>().alive == false) { 
             winText.text = "You Lose!";
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
         }
     }
 

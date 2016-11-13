@@ -27,7 +27,12 @@ public class PlayerController : MonoBehaviour {
 
 	void Start () {
         //This stops the device from falling asleep when only using the accelerometer
-        if (Application.loadedLevel == 3)
+        
+		if (Application.loadedLevel == 1) {
+			PlayerPrefs.SetInt ("score", 0); 
+		}
+
+		if (Application.loadedLevel == 3)
         {
             win = false;
             print("Score loading!");
