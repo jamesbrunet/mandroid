@@ -38,12 +38,22 @@ public class FetchHighScores : MonoBehaviour {
 		foreach (string highScore in highScoresList) {
 			JSONObject currentScore = new JSONObject (highScore); 
 			//txt.text += highScore;
-			txt.text += i.ToString() + ". "
-				+ string.Format("{0, -12} | {1, 4}",
-					currentScore.GetField("username").ToString().Replace("\"", ""),
-					currentScore.GetField("score").ToString() )
+			if (i > 9) {
+				txt.text += i.ToString () + ". "
+				+ string.Format ("{0, -11} | {1, 4}",
+					currentScore.GetField ("username").ToString ().Replace ("\"", ""),
+					currentScore.GetField ("score").ToString ())
 				+ "\n";
-			i ++;
+				i++;
+			} else {
+
+				txt.text += i.ToString () + ". "
+				+ string.Format ("{0, -12} | {1, 4}",
+					currentScore.GetField ("username").ToString ().Replace ("\"", ""),
+					currentScore.GetField ("score").ToString ())
+				+ "\n";
+				i++;
+			}
 		}
 	}
 
