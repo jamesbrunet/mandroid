@@ -23,7 +23,14 @@ public class gameStart : MonoBehaviour {
         if (ship.GetComponent<PlayerController>().win == true)
         {
             winText.text = "You Win!";
-            SceneManager.LoadScene(2);
+            if (Application.loadedLevel == 1)
+            {
+                SceneManager.LoadScene(3);
+            }
+            else
+            {
+                SceneManager.LoadScene(2);
+            }
         }
     }
 
@@ -31,7 +38,7 @@ public class gameStart : MonoBehaviour {
     {
         if (ship.GetComponent<PlayerController>().alive == false) { 
             winText.text = "You Lose!";
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
     }
 

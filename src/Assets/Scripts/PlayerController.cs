@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 // Our playercontroller is responsible for:
 // -Keeping track of its speed
 // -Picking up other game objects
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     public Slider fuelSlider;
   
     private Rigidbody rb;
-	private int score;
+	public int score;
 
 	void Start () {
         //This stops the device from falling asleep when only using the accelerometer
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
         fuel = 2000;
         rb = GetComponent<Rigidbody>();
-		score = 0;
 		SetCountText ();
 		winText.text = "";
 	}
@@ -66,9 +65,14 @@ public class PlayerController : MonoBehaviour {
 
 	void SetCountText(){
 		countText.text = "Count: " + score.ToString ();
-		if (score >= 12) {
+		if (score >= 12 && Application.loadedLevel == 1) {
             win = true;
-		}
+        }
+        if (score >= 24)
+        {
+            win = true;
+        }
+        
 	}
 
 
