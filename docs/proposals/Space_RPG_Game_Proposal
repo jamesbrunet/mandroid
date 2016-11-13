@@ -1,0 +1,22 @@
+Space RPG Game
+Proposed by: Rafael Martinez Sanchez 100990360
+
+Objective:
+
+You are a ship captain stranded on an alien solar system and you can't scape! To evade you fate of being lost forever, you must find enough fuel
+for your ship to exit the solar system.
+
+Platform:
+
+- Android phones
+
+Features:
+
+- Launch your ship on missions to earn fuel
+- Talk and recruit NPCs (non-player characters) as crew members to help you on missions
+- Go from planet to planet in search of new missions (careful! traveling also expends a bit of fuel)
+- Plan your next travel mission in a turn based perspective. You can only perform one action per turn
+- turns are limited, and once you have no more turns left. A travel mission will automatically launch
+- Watch your travels play out in real time. You don't control the ship in this stage. What happens depends on your planning stage decisions
+- Level up your captain in order to get more turns for the planning stage
+- Once you have enough fuel to leave the alien solar system, you win!
