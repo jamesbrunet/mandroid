@@ -1,0 +1,12 @@
+My work for the past week:
+
+- Implemented the accelerometer feature to tilt the camera for the player, which is used in mobile devices by measuring angles
+- Set project settings for mobile game version
+- Created original in-game mesh models and materials for the following objects:
+  - Planets
+  - Player ship
+  - Gas canister pickups
+  - exit Portal ring
+- Create particle system for ship explosion
+- Wrote first page of the demo summary document
+- various misc changes
