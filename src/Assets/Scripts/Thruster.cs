@@ -6,7 +6,7 @@ public class Thruster : MonoBehaviour
 
     public float thrusterMovementSpeed = 1f;
     public float thrusterRotationSpeed = 0.5f;
-    public float maxSpeed = 5.0f;
+    public float maxSpeed = 3.0f;
 
     private GameObject thrusterParent;
     private Rigidbody thrusterParentRb;
