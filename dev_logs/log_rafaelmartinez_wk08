@@ -1,0 +1,7 @@
+My work this week included:
+
+- Planning of look and behavior of a simple enemy from which multiple enemy types can be created to match the style of gameplay
+- Creation of a in-game mesh model for a basic enemy sentry
+- Creation of a search light model for the sentry to use as a cone of vision
+- Creation of a material and mesh that is used to display to the player where a planet's gravitational field starts pulling
+- Started work on the layout for the enemy sentry behavior in a way that can be overriden by various anemy subcasses
