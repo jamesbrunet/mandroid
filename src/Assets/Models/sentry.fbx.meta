@@ -16,9 +16,11 @@ ModelImporter:
     2300000: Eye
     2300002: SearchLight
     2300004: Sentry
+    2300006: //RootNode
     3300000: Eye
     3300002: SearchLight
     3300004: Sentry
+    3300006: //RootNode
     4300000: SearchLight
     4300002: Eye
     4300004: Sentry
