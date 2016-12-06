@@ -148,6 +148,10 @@ public class PlayerController : MonoBehaviour {
         {
             win = true;
         }
+		if (score >= 36 && Application.loadedLevel == 5)
+		{
+			win = true;
+		}
 
         
 	}

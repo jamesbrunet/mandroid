@@ -31,7 +31,11 @@ public class gameStart : MonoBehaviour {
             if (Application.loadedLevel == 1)
             {
                 SceneManager.LoadScene(3);
-            }
+           	}
+			else if (Application.loadedLevel == 3)
+			{
+				SceneManager.LoadScene(5);
+			}
             else
             {
                 SceneManager.LoadScene(4);
