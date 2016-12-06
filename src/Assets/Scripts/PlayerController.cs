@@ -88,6 +88,12 @@ public class PlayerController : MonoBehaviour {
             print("Score loading!");
             score = PlayerPrefs.GetInt("score");
         }
+		else if (Application.loadedLevel == 5)
+		{
+			win = false;
+			print("Score loading!");
+			score = PlayerPrefs.GetInt("score");
+		}
         else
         {
             score = 0;
