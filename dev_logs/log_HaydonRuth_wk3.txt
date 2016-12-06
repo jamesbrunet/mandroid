@@ -1,0 +1,2 @@
+Worked on the Gravitational Pull Formula
+Worked on trying to create a method in which the game board will calculate boundaries.

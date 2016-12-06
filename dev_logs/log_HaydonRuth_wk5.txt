@@ -1,0 +1,4 @@
+Successfully implemented a gravitational pull, affects the ship.
+Created a few Object prefabs with Raphael.
+Played with the lighting schemes we had devised.
+Planned the objects the game would consist of.
