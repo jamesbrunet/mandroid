@@ -14,7 +14,7 @@ public class Gravitational : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player")
         {
-          
+        
             pullCounter++;
             //Debug.Log("Counter: " + pullCounter);
             if(pullCounter == 1){

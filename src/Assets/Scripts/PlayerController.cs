@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 // -Picking up other game objects
 // -Keeping track of the score
 // The speed tracking, pickups, and score is from
-// the unity roll a ball tutorial
+// -Checking win/loss states.
 
 
 public class PlayerController : MonoBehaviour {
@@ -18,15 +18,65 @@ public class PlayerController : MonoBehaviour {
     public bool win = false;
     public bool alive = true;
     public GameObject explosionParticles;
-    private int score;
+    public int score;
     //Fuel
     public float fuel;
     public Slider fuelSlider;
   
     private Rigidbody rb;
 
+    //Getters
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public bool getWin()
+    {
+        return win;
+    }
+
+    public bool getAlive()
+    {
+        return alive;
+    }
+
+    public int getScore()
+    {
+        return score;
+    }
+
+    public float getFuel()
+    {
+        return fuel;
+    }
+    //Setters
+    public void setSpeed(float newSpeed)
+    {
+        newSpeed = speed;
+    }
+
+    public void setWin(bool newWin)
+    {
+        newWin = win;
+    }
+
+    public void setAlive(bool newAlive)
+    {
+        newAlive = alive;
+    }
+
+    public void setScore(int newScore)
+    {
+        newScore = score;
+    }
+
+    public void setFuel(float newFuel)
+    {
+        newFuel = fuel;
+    }
+
 	void Start () {
-        //This stops the device from falling asleep when only using the accelerometer
         
 		if (Application.loadedLevel == 1) {
 			PlayerPrefs.SetInt ("score", 0); 

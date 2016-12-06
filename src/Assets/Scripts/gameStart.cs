@@ -15,11 +15,16 @@ public class gameStart : MonoBehaviour {
     // Use this for initialization
     void Start () {
 	}
-	
 
+	public void Begin()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    //Checks which scene state the game is in, changes it accordingly.
     void youWin()
     {
-        
+
         if (ship.GetComponent<PlayerController>().win == true)
         {
             winText.text = "You Win!";
@@ -34,6 +39,7 @@ public class gameStart : MonoBehaviour {
         }
     }
 
+//Game over screen initiates, then the highscore page displays
     void youLose()
     {
         if (ship.GetComponent<PlayerController>().alive == false) { 

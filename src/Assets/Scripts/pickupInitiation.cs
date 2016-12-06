@@ -25,7 +25,7 @@ public class pickupInitiation : MonoBehaviour {
             {
                 print("Fuel just picked up!");
                 this.isPickedUp = true;
-                   other.gameObject.GetComponent<PlayerController>().fuel = 2000;
+                   other.gameObject.GetComponent<PlayerController>().setFuel(2000);
             }
         }
     }
