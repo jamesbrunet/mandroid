@@ -21,6 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '4yf@@+$_w98g)+q0t5^0y*hui$cf3@)72s7k&l1-qgzo=@+ed8'
+# Note from James: This, of course, really shouldn't be on github. That being said, for the scope of this personal project
+# (a high score system for a mediocre game with no playerbase) security is not important. I am far more careful in the workplace. 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
