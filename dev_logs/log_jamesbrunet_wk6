@@ -1,3 +1,0 @@
-Implemented simple version of high scores server. It takes POSTs of new high scores and the player can retrieve a list of top high scores. 
-
-It's got a very scalable backend ;)

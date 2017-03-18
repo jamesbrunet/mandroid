@@ -1,2 +1,0 @@
-Finished correct implementation of fuel consumption.
-Points saved between levels.

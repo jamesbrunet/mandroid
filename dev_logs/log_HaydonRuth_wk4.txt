@@ -1,2 +1,0 @@
-Implemented a hardcoded boundary - Not that great
-Implemented a collider boundary - Works, but isn't the most efficient.

@@ -1,4 +1,0 @@
-Implemented: The portal now works fluidly
-	     The level changing object now has more features (changes levels by points & whether or not entered the portal)
-	     Portal animations (with Raphael) - Amazing.
-	     
