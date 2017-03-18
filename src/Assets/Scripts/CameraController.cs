@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
+	// This is a test comment
 
     public GameObject player;		//Public variable to store a reference to the player game object
 
